@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Light Theme and Custom Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #0d1b2a, #1f4068);
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            font-family: 'Roboto', sans-serif;
+            transition: background 0.3s ease-in-out;
+        }
+
+        header div {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6347;
+            margin-bottom: 1rem;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ff6347;
+            transform: translateY(-5px);
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff6347;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        header nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff, #f0f4f7);
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f0f4f7, #ffffff);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #4a90e2;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        section#about {
+            padding: 6rem 2rem;
+            background: linear-gradient(45deg, #0d1b2a, #1f4068);
+            color: #fff;
+            position: relative;
+        }
+
+        section#about h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff6347;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .content-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .content-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-item h3 {
+            font-size: 1.8rem;
+            color: #ff6347;
+            margin-bottom: 1rem;
+        }
+
+        .content-item p {
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .content-item {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px #4a90e2;
+        }
+
+        .content-item h3 {
+            color: #4a90e2;
+            margin-bottom: 1rem;
+        }
+
+        .content-item p {
+            color: #333;
+        }
+
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        footer {
+            padding: 3rem;
+            background: linear-gradient(135deg, #0d1b2a, #1f4068);
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            color: #ff6347;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        footer p:last-child {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+
+        /* About Section (Full Page) */
+        section#about {
+            height: 100vh; /* Make the section full screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0d1b2a, #1f4068); /* Gradient background */
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .about-content {
+            max-width: 800px; /* Restrict width for readability */
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px); /* Blur effect for background */
+            animation: fadeInUp 1.5s ease-out; /* Animation for content */
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: #ff6347;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+        }
+
+        /* Animation for smooth fade-in */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- <div>MyPortfolio</div> -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#work">Work</a>
+            <a href="#education">Education</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+   <!-- About Section (Full Page) -->
+    <section id="about">
+        <div class="about-content">
+            <h2>Anshul Tikariha</h2>
+            <p>A seasoned professional with over 5+ years of experience in software development, leading as the Development Team Lead at TYA Suite Software Solutions.</p>
+            <p>I'm passionate about solving problems with code and building impactful solutions. I have expertise in web and mobile technologies, along with experience in leading teams and managing projects.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="content-grid">
+            <div class="content-item">
+                <h3>Languages & Frameworks</h3>
+                <p>Java, PHP, CodeIgniter, Laravel, JavaScript, AngularJS, SQL</p>
+            </div>
+            <div class="content-item">
+                <h3>Tools & Technologies</h3>
+                <p>Android Studio, Git, GitLab, Firebase, REST API, MongoDB, Docker</p>
+            </div>
+            <div class="content-item">
+                <h3>Soft Skills</h3>
+                <p>Leadership, Project Management, Problem Solving, Code Review</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work">
+        <h2>Work Experience</h2>
+        <div class="content-grid">
+            <div class="content-item">
+                <h3>TYASuite Software Solutions Pvt. Ltd., Bangalore</h3>
+                <p><strong>Team Leader (Jun 2022 - Present)</strong></p>
+                <ul>
+                    <li>Led a team of 8 developers to deliver high-quality software solutions, focusing on project analysis, task assignment, designing, developing, and deploying.</li>
+                    <li>Optimized reports page, resulting in a 60% reduction in page loading time, enhancing user experience and operational efficiency.</li>
+                    <li>Spearheaded the implementation of performance enhancements, including database indexing and query optimization, leading to a 30% increase in application performance.</li>
+                    <li>Recognized with multiple awards, including Rising Star, Achievers Award, and Employee of the Year 2023 for outstanding performance and leadership.</li>
+                    <li>PHP, CodeIgniter, MongoDB, APIs, AngularJS, SQL, HTML, CSS, JavaScript, Query Optimization, Git, GitLab, Leadership, Problem Solving, Shell Scripting, Cron Jobs, Code Review.</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <h3>Singhania IT Solution, Raipur, C.G.</h3>
+                <p><strong>Senior Full-Stack Developer (Oct 2021 - May 2022)</strong></p>
+                <ul>
+                    <li>Mentored and guided a team of 5+ developers, enhancing their performance through effective mentoring and project management.</li>
+                    <li>Streamlined development workflows by introducing standardized coding practices and efficient project management techniques, reducing development time by 15%.</li>
+                    <li>Java, Android Studio, PHP, CodeIgniter, Laravel, MySQL, XML, JavaScript, AJAX, Firebase, SQLite, Payment Gateway, FileZilla, DigitalOcean, Web Hosting, Project Management.</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <h3>Freelance</h3>
+                <p><strong>Full-Stack Developer (Oct 2018 - Jan 2022)</strong></p>
+                <ul>
+                    <li>Worked with esteemed organizations such as Technoowls IT Solution in Noida and RAYS IT & DESIGN WORLD in Raipur.</li>
+                    <li>Delivered tailored solutions for diverse clients, earning a reputation for reliability and excellence.</li>
+                    <li>Developed and maintained client applications, achieving a 20% reduction in bug reports through thorough testing and code review processes.</li>
+                    <li>Major Projects: <a href="https://terasaath.in/">terasaath.in</a>, <a href="https://witsavvy.com/">witsavvy.com</a>, <a href="https://core-cab.com/">core-cab.com</a>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="content-grid">
+            <div class="content-item">
+                <h3>B.Tech. in Computer Science</h3>
+                <p>Chhattisgarh Swami Vivekanand Technical University, Bhilai (CGPA: 7.95/10)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <div class="content-grid">
+            <div class="content-item">
+                <h3>Employee of the Year 2023</h3>
+                <p>TYASuite Software Solutions</p>
+            </div>
+            <div class="content-item">
+                <h3>Rising Star Award 2023</h3>
+                <p>TYASuite Software Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="content-grid">
+            <div class="content-item">
+                <h3>Biryani Buy Junction</h3>
+                <p>Developed a food delivery platform using Laravel and PHP, facilitating user-friendly ordering, real-time order tracking, and secure payment processing, significantly boosting user engagement and satisfaction.</p>
+                <p><strong>Technology Used:</strong> PHP, Laravel, APIs, Payment Gateway, Web Hosting.</p>
+            </div>
+            <div class="content-item">
+                <h3>Tera Saath</h3>
+                <p>Developed a comprehensive matrimonial platform facilitating user registration, profile matching, and communication, resulting in significant user base growth.</p>
+                <p><strong>Technology Used:</strong> PHP, Laravel, APIs, Payment Gateway, Android, Java, XML.</p>
+            </div>
+            <div class="content-item">
+                <h3>Core-Cab</h3>
+                <p>Engineered a dynamic taxi booking application with innovative features such as one-way, round-trip, and hourly packages. Developed a multi-city service section, enhancing user convenience and expanding service reach.</p>
+                <p><strong>Technology Used:</strong> CodeIgniter, PHP, HTML, CSS, JavaScript, Firebase, Mobile Authentication.</p>
+            </div>
+            <div class="content-item">
+                <h3>Witsavvy</h3>
+                <p>Created essential features including course creation, user enrollment, and progress tracking. Removed complex bugs and provided bug-free software, significantly enhancing the learning experience for users.</p>
+                <p><strong>Technology Used:</strong> Core PHP, Laravel, APIs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <p>Contact me at <a href="https://www.linkedin.com/in/anshultikariha/">LinkedIn</a></p>
+        <p>&copy; 2025 Anshul Tikariha</p>
+    </footer>
+</body>
+</html>
