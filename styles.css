@@ -172,3 +172,62 @@ p {
           opacity: 1;
       }
   }
+
+  .social-icons {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #4a90e2;
+    transform: scale(1.2);
+}
+
+.fa:hover {
+  opacity: 0.8;
+}
+
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+.name {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4a90e2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.name:hover {
+  transform: scale(1.1);
+}
